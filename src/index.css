@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Herbal Garden Color Palette */
+    --background: 120 25% 98%;
+    --foreground: 150 30% 15%;
+
+    --card: 120 20% 97%;
+    --card-foreground: 150 25% 20%;
+
+    --popover: 120 20% 97%;
+    --popover-foreground: 150 25% 20%;
+
+    --primary: 140 60% 35%;
+    --primary-foreground: 120 25% 98%;
+    --primary-glow: 140 50% 50%;
+
+    --secondary: 100 25% 85%;
+    --secondary-foreground: 150 30% 25%;
+
+    --muted: 110 20% 92%;
+    --muted-foreground: 150 15% 45%;
+
+    --accent: 80 40% 75%;
+    --accent-foreground: 150 30% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 120 20% 85%;
+    --input: 120 15% 90%;
+    --ring: 140 60% 45%;
+
+    --radius: 0.75rem;
+
+    /* Nature-inspired gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(140 60% 35%), hsl(140 50% 50%));
+    --gradient-hero: linear-gradient(180deg, hsl(140 40% 20%), hsl(120 35% 35%));
+    --gradient-card: linear-gradient(145deg, hsl(120 25% 98%), hsl(110 20% 95%));
+    --gradient-search: linear-gradient(90deg, hsl(140 60% 35%), hsl(100 50% 40%));
+    
+    /* Shadows with green tints */
+    --shadow-garden: 0 10px 30px -10px hsl(140 30% 35% / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(120 20% 50% / 0.2);
+    --shadow-glow: 0 0 40px hsl(140 50% 50% / 0.4);
+
+    /* Animations */
+    --transition-nature: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 120 20% 95%;
+    --sidebar-foreground: 150 25% 25%;
+    --sidebar-primary: 140 60% 35%;
+    --sidebar-primary-foreground: 120 25% 98%;
+    --sidebar-accent: 110 15% 88%;
+    --sidebar-accent-foreground: 150 25% 25%;
+    --sidebar-border: 120 15% 80%;
+    --sidebar-ring: 140 60% 45%;
+  }
+
+  .dark {
+    /* Dark theme for herbal garden */
+    --background: 150 20% 8%;
+    --foreground: 120 25% 85%;
+
+    --card: 150 20% 10%;
+    --card-foreground: 120 20% 80%;
+
+    --popover: 150 20% 10%;
+    --popover-foreground: 120 20% 80%;
+
+    --primary: 140 50% 55%;
+    --primary-foreground: 150 20% 8%;
+    --primary-glow: 140 45% 65%;
+
+    --secondary: 150 15% 18%;
+    --secondary-foreground: 120 20% 80%;
+
+    --muted: 150 15% 15%;
+    --muted-foreground: 120 15% 60%;
+
+    --accent: 100 30% 35%;
+    --accent-foreground: 120 20% 80%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 120 25% 85%;
+
+    --border: 150 15% 20%;
+    --input: 150 15% 18%;
+    --ring: 140 50% 55%;
+
+    /* Dark theme gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(140 50% 55%), hsl(140 45% 65%));
+    --gradient-hero: linear-gradient(180deg, hsl(150 25% 5%), hsl(140 20% 15%));
+    --gradient-card: linear-gradient(145deg, hsl(150 20% 10%), hsl(150 15% 12%));
+    --gradient-search: linear-gradient(90deg, hsl(140 50% 55%), hsl(120 45% 50%));
+    
+    --shadow-garden: 0 10px 30px -10px hsl(0 0% 0% / 0.6);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 40px hsl(140 45% 65% / 0.3);
+
+    --sidebar-background: 150 20% 8%;
+    --sidebar-foreground: 120 20% 80%;
+    --sidebar-primary: 140 50% 55%;
+    --sidebar-primary-foreground: 150 20% 8%;
+    --sidebar-accent: 150 15% 15%;
+    --sidebar-accent-foreground: 120 20% 80%;
+    --sidebar-border: 150 15% 18%;
+    --sidebar-ring: 140 50% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Text size utilities */
+  .text-small { font-size: 0.875rem; }
+  .text-medium { font-size: 1rem; }
+  .text-large { font-size: 1.125rem; }
+  .text-extra-large { font-size: 1.25rem; }
+
+  /* Responsive text scaling */
+  :root.text-small {
+    --text-scale: 0.875;
+  }
+  :root.text-medium {
+    --text-scale: 1;
+  }
+  :root.text-large {
+    --text-scale: 1.125;
+  }
+  :root.text-extra-large {
+    --text-scale: 1.25;
+  }
+
+  /* Apply scaling to content */
+  .text-scalable {
+    font-size: calc(1rem * var(--text-scale, 1));
+  }
+  .text-scalable-sm {
+    font-size: calc(0.875rem * var(--text-scale, 1));
+  }
+  .text-scalable-lg {
+    font-size: calc(1.125rem * var(--text-scale, 1));
+  }
+  .text-scalable-xl {
+    font-size: calc(1.25rem * var(--text-scale, 1));
+  }
+  .text-scalable-2xl {
+    font-size: calc(1.5rem * var(--text-scale, 1));
+  }
+  .text-scalable-3xl {
+    font-size: calc(1.875rem * var(--text-scale, 1));
+  }
+  .text-scalable-4xl {
+    font-size: calc(2.25rem * var(--text-scale, 1));
+  }
+}
